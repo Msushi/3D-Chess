@@ -1,6 +1,6 @@
 public class Queen extends ChessPiece{
 
-    public Rook(Color color){
+    public Queen(Color color){
         super(color, "Queen");
         setIcon(//you know);
         //BLAH BLAH bLAH
