@@ -1,7 +1,7 @@
-public class Rook extends ChessPiece{
+public class Queen extends ChessPiece{
 
     public Rook(Color color){
-        super(color, "Rook");
+        super(color, "Queen");
         setIcon(//you know);
         //BLAH BLAH bLAH
     }
