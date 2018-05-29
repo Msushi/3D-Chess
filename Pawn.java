@@ -35,9 +35,8 @@ public class Pawn extends ChessPiece {
                     return true;
              
         }
-        //Checking for a valid capture move
+        //Checking for a valid two dimensional capture move
         if (this.teamColor == Color.WHITE) {
-            //Checking for normal two dimensional capture
             if (this.pos[2] == c.pos[2] && this.pos[0] == c.pos[0] - 1 && (this.pos[1] == c.pos[1] + 1 || this.pos[1] == c.pos[1] + 1))
                 //Checking that the square has a piece that belongs to the opponent
                 if (c != null && c.teamColor != this.teamColor) {
@@ -56,6 +55,27 @@ public class Pawn extends ChessPiece {
                     return true;
                 }
         }
+        //Checking for a valid three dimensional capture move
+         if (this.teamColor == Color.WHITE) {
+            if (this.pos[2] == c.pos[2] - 1 && this.pos[0] == c.pos[0] - 1 && (this.pos[1] == c.pos[1] + 1 || this.pos[1] == c.pos[1] + 1))
+                //Checking that the square has a piece that belongs to the opponent
+                if (c != null && c.teamColor != this.teamColor) {
+                    this.pos = c.pos;
+                    c = null;
+                    return true;
+                }
+        }
+        else { //if  (this.teamColor == Color.BLACK); 
+            if (this.pos[2] == c.pos[2] - 1 && this.pos[0] == c.pos[0] - 1 && (this.pos[1] == c.pos[1] - 1 || this.pos[1] == c.pos[1] + 1))
+                //Checking that the square has a piece that belongs to the opponent
+                if (c != null && c.teamColor != this.teamColor) {
+                    this.pos = c.pos;
+                    c = null;
+                    return true;
+                }
+        }
+        return false;
+        
             
         
     }
