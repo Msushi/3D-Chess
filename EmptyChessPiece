@@ -1,0 +1,3 @@
+public class EmptyChessPiece extends ChessPiece {
+    
+    public EmptyChessPiece()
