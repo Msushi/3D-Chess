@@ -50,4 +50,18 @@ public class ChessGame {
         
         
     }
+    
+    public void updateBoard(){
+        for(int i = 0; i < 8; i++){
+            for(int j = 0; j < 8; j++){
+                for(int k = 0; k < 8; k++){
+                    int a = board[i][j][k].getPosition()[0];
+                    int b = board[i][j][k].getPosition()[1];
+                    int c = board[i][j][k].getPosition()[2];
+                    
+                    if(board[a
+                }
+            }
+        }
+    }
 }
