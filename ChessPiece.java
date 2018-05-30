@@ -15,9 +15,14 @@ public abstract class ChessPiece {
         }
         
 	public Icon getIcon(){
-		return picture;
+	    return picture;
 	}
         
+	public int[] getPosition(){
+	    return pos;
+	}
+	
+	//Sets position of chess piece
         public void setPosition(int a, int b, int c)
         {
             pos[0] = a;
