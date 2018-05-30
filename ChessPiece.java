@@ -24,6 +24,10 @@ public abstract class ChessPiece {
             pos[1] = b;
             pos[2] = c;
         }
+	//For use with empty chess pieces
+	public boolean isEmpty() {
+		return false;
+	}
 	
 	/**
 	 * Checks if move for chesspiece is valid, then moves chesspiece and captures if necessary.
