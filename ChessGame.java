@@ -1,7 +1,7 @@
 public class ChessGame {
     public ChessPiece[][][] board;
-    private Player p1;
-    private Player p2;
+    //True = Player 1 (white), False = Player 2 (black)
+    private boolean playerTurn;
     
     /**
      * Initializes the chess board so all pieces are in their starting positions with each player's color
