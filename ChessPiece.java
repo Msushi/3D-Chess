@@ -2,14 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class ChessPiece {
-	protected Color teamColor;
+	protected boolean isWhite;
 	private Icon picture;
         private String name;
         protected int[] pos;
 	
-        public ChessPiece(Icon pic, Color color, String str) {
+        public ChessPiece(Icon pic, boolean white, String str) {
             picture = pic;
-            teamColor = color;
+            isWhite = white;
             name = str;
             pos = new int[3];
         }
