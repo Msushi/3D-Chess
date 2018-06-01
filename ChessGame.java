@@ -59,7 +59,10 @@ public class ChessGame {
                     int b = board[i][j][k].getPosition()[1];
                     int c = board[i][j][k].getPosition()[2];
                     
-                    if(board[a
+                    if(board[a][b][c] != board[i][j][k]){
+                        board[i][j][k] = board[a][b][c];
+                        board[a][b][c] = new EmptyPiece();
+                    }
                 }
             }
         }
