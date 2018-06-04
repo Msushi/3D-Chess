@@ -6,7 +6,7 @@ public class ChessInput implements MouseListener {
   private ChessPiece determineInput(Point pos) {
     int x = pos.getX();
     int y = pos.getY();
-    if ((x =< 0 || x >= 360  ) || (y <= 0 || y >= 360 )
+    if ((x =< 0 || x >= 360) || (y <= 0 || y >= 360))
         return null;
     else {
         return ChessGame.board[x/45][y/45][currentDimension];
