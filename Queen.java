@@ -1,9 +1,11 @@
 public class Queen extends ChessPiece{
 
-    public Queen(Color color){
-        super(color, "Queen");
-        setIcon(//you know);
-        //BLAH BLAH bLAH
+    public Queen(white){
+        super(white, "Queen");
+        if (white)
+            setIcon(new ImageIcon("Chess Piece Icons/WhiteQueen.jpg"));
+        else
+            setIcon(new ImageIcon("Chess Piece Icons/BlackQueen.jpg"));
     }
 
     public boolean move(ChessPiece c){
