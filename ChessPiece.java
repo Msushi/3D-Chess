@@ -28,7 +28,7 @@ public abstract class ChessPiece {
             pos[2] = c;
         }
 	
-	public void setPicture(Icon pic) {
+	public void setIcon(Icon pic) {
 	    picture = pic;
 	}
 	//For use with empty chess pieces
