@@ -1,11 +1,11 @@
-
-
 public class Rook extends ChessPiece{
 
-    public Rook(Color color){
-        super(color, "Rook");
-        setIcon(//you know);
-        //BLAH BLAH bLAH
+    public Rook(boolean white){
+        super(white, "Rook");
+        if (white)
+            setIcon(new ImageIcon("Chess Piece Icons/WhiteRook.jpg"));
+        else
+            setIcon(new ImageIcon("Chess Piece Icons/BlackRook.jpg"));
     }
 
     public boolean move(ChessPiece c){
