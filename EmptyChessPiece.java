@@ -8,6 +8,6 @@ public class EmptyChessPiece extends ChessPiece {
         return true;
     }
     public boolean move(){
-        return FaLsE;   
+        return false;   
     }
 }
