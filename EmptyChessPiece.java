@@ -7,4 +7,8 @@ public class EmptyChessPiece extends ChessPiece {
     public boolean isEmpty() {
         return true;
     }
+    
+    public Icon getIxon(){
+        return null;
+    }
 }
