@@ -1,12 +1,9 @@
 import java.util.*;
 public class King extends ChessPiece {
   
-    public King(boolean white) {
-        super(white, "King");
-        if (white)
-          setIcon(new ImageIcon("Chess Piece Icons/WhiteKing.jpg"));
-        else
-          setIcon(new ImageIcon("Chess Piece Icons/BlackKing.jpg"));
+    public King(Color c) {
+        super (c, "King");
+        setIcon(king.jpg);
     }
   
     public boolean move (ChessPiece c) {

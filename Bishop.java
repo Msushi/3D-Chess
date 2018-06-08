@@ -1,11 +1,9 @@
 public class Bishop extends ChessPiece{
 
-    public Bishop(boolean white){
-        super(white, "Bishop");
-        if (white)
-            setIcon(new ImageIcon("Chess Piece Icons/WhiteBishop.jpg"));
-        else
-            setIcon(new ImageIcon("Chess Piece Icons/BlackBishop.jpg"));
+    public Bishop(Color color){
+        super(color, "Bishop");
+        setIcon(//you know);
+        //BLAH BLAH bLAH
     }
 
     public boolean move(ChessPiece c){

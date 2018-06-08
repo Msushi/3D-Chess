@@ -3,13 +3,9 @@ public class Pawn extends ChessPiece {
     
     private boolean isFirstMove;
     
-    public Pawn(white) {
-        super(white, "Pawn");
+    public Pawn(Color c) {
+        super(c, pic, "Pawn");
         isFirstMove = true;
-        if (white)
-            setIcon(new ImageIcon("Chess Piece Icons/WhitePawn.jpg"));
-        else
-            setIcon(new ImageIcon("Chess Piece Icons/BlackPawn.jpg"));
     }
     public boolean move(ChessPiece c) {
         //Checking if the move is valid when a pawn moves normally (forward)

@@ -7,7 +7,4 @@ public class EmptyChessPiece extends ChessPiece {
     public boolean isEmpty() {
         return true;
     }
-    public boolean move(){
-        return false;   
-    }
 }

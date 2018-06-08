@@ -1,3 +1,3 @@
 # 3D-Chess
 APCS final project
-made by msushi and albot
+made by Matthew Lyons and Albert Guo
