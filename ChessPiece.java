@@ -7,8 +7,7 @@ public abstract class ChessPiece {
         private String name;
         protected int[] pos;
 	
-        public ChessPiece(Icon pic, boolean white, String str) {
-            picture = pic;
+        public ChessPiece(boolean white, String str) {
             isWhite = white;
             name = str;
             pos = new int[3];
@@ -22,9 +21,11 @@ public abstract class ChessPiece {
 	    return pos;
 	}
 	
+        public void setIcon(Icon yeet) {
+            picture = yeet;
+        }
 	//Sets position of chess piece
-        public void setPosition(int a, int b, int c)
-        {
+        public void setPosition(int a, int b, int c) {
             pos[0] = a;
             pos[1] = b;
             pos[2] = c;

@@ -1,9 +1,12 @@
+import javax.swing.*;
 public class Knight extends ChessPiece{
 
-    public Knight(Color color){
-        super(color, "Knight");
-        setIcon(//you know);
-        //BLAH BLAH bLAH
+    public Knight(boolean white){
+        super(white, "King");
+       if (white)
+           setIcon(new ImageIcon(Knight.class.getResource("Chess Piece Icons/WhiteKnight.jpg")));
+       else
+           setIcon(new ImageIcon(Knight.class.getResource("Chess Piece Icons/BlackKnight.jpg")));
     }
 
     public boolean move(ChessPiece c){

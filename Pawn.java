@@ -1,11 +1,15 @@
 import java.awt.*;
+import javax.swing.*;
 public class Pawn extends ChessPiece {
     
     private boolean isFirstMove;
     
-    public Pawn(Color c) {
-        super(c, pic, "Pawn");
-        isFirstMove = true;
+    public Pawn(boolean white) {
+       super(white, "Pawn");
+       if (white)
+           setIcon(new ImageIcon(Pawn.class.getResource("Chess Piece Icons/WhitePawn.jpg")));
+       else
+           setIcon(new ImageIcon(Pawn.class.getResource("Chess Piece Icons/BlackPawn.jpg")));
     }
     public boolean move(ChessPiece c) {
         //Checking if the move is valid when a pawn moves normally (forward)

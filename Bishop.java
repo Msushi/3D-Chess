@@ -1,9 +1,13 @@
+import javax.swing.*;
 public class Bishop extends ChessPiece{
 
-    public Bishop(Color color){
-        super(color, "Bishop");
-        setIcon(//you know);
-        //BLAH BLAH bLAH
+    public Bishop(boolean white){
+       super(white, "Bishop");
+       if (white)
+           setIcon(new ImageIcon(Bishop.class.getResource("Chess Piece Icons/WhiteBishop.jpg")));
+       else
+           setIcon(new ImageIcon(Bishop.class.getResource("Chess Piece Icons/BlackBishop.jpg")));
+       
     }
 
     public boolean move(ChessPiece c){

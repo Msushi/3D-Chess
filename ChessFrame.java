@@ -4,9 +4,8 @@ import java.awt.event.*;
 
 public class ChessFrame extends JFrame{
     private JPanel mainPanel;
-    private JLabel board;
     private JButton upArrow, downArrow;
-    private JLabel elevatorLevel, playerA, playerB;
+    private JLabel elevatorLevel, board, playerA, playerB;
     private int currentDimension;
     
     public ChessFrame(){
@@ -31,6 +30,7 @@ public class ChessFrame extends JFrame{
       c.gridwidth = 3;
       c.gridheight = 3;
       board = new JLabel(createImageIcon("Chess Piece Icons/ChessBoard.jpg"));
+      board.addMouseListener(new MouseAction());
       mainPanel.add(board, c);
       
       c.fill = GridBagConstraints.HORIZONTAL;
@@ -67,6 +67,21 @@ public class ChessFrame extends JFrame{
       downArrow.addActionListener(new DownArrowAction());
     }
     
+    public void paint(Graphics g){
+        ChessPiece test = new Queen(false);
+        test.getIcon().paintIcon(board, g,45 + 10,45);
+        
+        /**ChessGame test = new ChessGame();
+        for(int a = 0; a < 8; a++){
+            for(int b = 0; b < 8;b++){
+                if (!test.board[a][b][currentDimension].isEmpty()) {
+                    int[] pos = test.board[a][b][currentDimension].getPosition();
+                    test.board[a][b][currentDimension].getIcon().paintIcon(board, g, pos[0]*45 + 10, pos[1]*45);
+                }
+            }
+        }*/
+    }
+
     private ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = getClass().getResource(path);
         if (imgURL != null) {
@@ -80,14 +95,33 @@ public class ChessFrame extends JFrame{
     
     private class DownArrowAction implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            currentDimension--;
+            if (currentDimension != 1)
+                currentDimension--;
             elevatorLevel.setText(Integer.toString(currentDimension));
         }
     }
     private class UpArrowAction implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            currentDimension++;
+            if (currentDimension != 8)
+                currentDimension++;
             elevatorLevel.setText(Integer.toString(currentDimension));
+        }
+    }
+    private class MouseAction implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+            System.out.println(Integer.toString(e.getX() / 45) + Integer.toString(e.getY() / 45) + Integer.toString(currentDimension) );
+        }
+        public void mouseEntered(MouseEvent e) {
+            
+        }
+        public void mouseExited(MouseEvent e) {
+            
+        }
+        public void mousePressed(MouseEvent e) {
+            
+        }
+        public void mouseReleased(MouseEvent e) {
+            
         }
     }
 }

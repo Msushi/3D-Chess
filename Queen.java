@@ -1,9 +1,12 @@
+import javax.swing.*;
 public class Queen extends ChessPiece{
 
-    public Queen(Color color){
-        super(color, "Queen");
-        setIcon(//you know);
-        //BLAH BLAH bLAH
+    public Queen(boolean white){
+       super(white, "Queen");
+       if (white)
+           setIcon(new ImageIcon(Queen.class.getResource("Chess Piece Icons/WhiteQueen.jpg")));
+       else
+           setIcon(new ImageIcon(Queen.class.getResource("Chess Piece Icons/BlackQueen.jpg")));
     }
 
     public boolean move(ChessPiece c){
@@ -13,7 +16,7 @@ public class Queen extends ChessPiece{
         
         if(c.pos[0] == this.pos[0] && c.pos[1] == this.pos[1] && c.pos[2] == this.pos[2]){
             rookBeValid = false;
-            break;
+            return false;
         }
         //Checks if position is in range; checks whether or not pieces are blocking the way
         if(c.pos[0] == this.pos[0] && c.pos[1] == this.pos[1]){

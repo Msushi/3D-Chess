@@ -1,5 +1,5 @@
 public class ChessGame {
-    public ChessPiece[][][] board;
+    public static ChessPiece[][][] board;
     //True = Player 1 (white), False = Player 2 (black)
     private boolean playerTurn;
     
@@ -13,31 +13,31 @@ public class ChessGame {
         
         //Initializes player 1's pawns
         for (int i = 0; i < 8;i++) {
-            board[1][i][0] = new Pawn(p1.getColor());
+            board[1][i][0] = new Pawn(true);
         }
         //Initializes player 1's special pieces
-        board[0][0][0] = new Rook(p1.getColor());
-        board[0][7][0] = new Rook(p1.getColor());
-        board[0][1][0] = new Knight(p1.getColor());
-        board[0][6][0] = new Knight(p1.getColor());
-        board[0][2][0] = new Bishop(p1.getColor());
-        board[0][5][0] = new Bishop(p1.getColor());
-        board[0][3][0] = new Queen(p1.getColor());
-        board[0][4][0] = new King(p1.getColor());
+        board[0][0][0] = new Rook(true);
+        board[0][7][0] = new Rook(true);
+        board[0][1][0] = new Knight(true);
+        board[0][6][0] = new Knight(true);
+        board[0][2][0] = new Bishop(true);
+        board[0][5][0] = new Bishop(true);
+        board[0][3][0] = new Queen(true);
+        board[0][4][0] = new King(true);
         
         //Initializes player 2's pawns
         for (int i = 0; i < 8; i++) {
-            board[6][i][0] = new Pawn(p2.getColor());
+            board[6][i][0] = new Pawn(false);
         }
         //Initializes player 2's special pieces
-        board[7][0][0] = new Rook(p2.getColor());
-        board[7][7][0] = new Rook(p2.getColor());
-        board[7][1][0] = new Knight(p2.getColor());
-        board[7][6][0] = new Knight(p2.getColor());
-        board[7][2][0] = new Bishop(p2.getColor());
-        board[7][5][0] = new Bishop(p2.getColor());
-        board[7][3][0] = new Queen(p2.getColor());
-        board[7][4][0] = new King(p2.getColor());
+        board[7][0][0] = new Rook(false);
+        board[7][7][0] = new Rook(false);
+        board[7][1][0] = new Knight(false);
+        board[7][6][0] = new Knight(false);
+        board[7][2][0] = new Bishop(false);
+        board[7][5][0] = new Bishop(false);
+        board[7][3][0] = new Queen(false);
+        board[7][4][0] = new King(false);
        
         //Sets chesspieces to contain position info
         for(int i = 0; i < 8; i++){
@@ -51,11 +51,11 @@ public class ChessGame {
         
     }
     
-    public int[][][] getBoard() {
+    public ChessPiece[][][] getBoard() {
         return board;
     }
     
-    prviate void updateBoard(){
+    private void updateBoard(){
         for(int i = 0; i < 8; i++){
             for(int j = 0; j < 8; j++){
                 for(int k = 0; k < 8; k++){
@@ -65,7 +65,7 @@ public class ChessGame {
                     
                     if(board[a][b][c] != board[i][j][k]){
                         board[i][j][k] = board[a][b][c];
-                        board[a][b][c] = new EmptyPiece();
+                        board[a][b][c] = new EmptyChessPiece();
                     }
                 }
             }
