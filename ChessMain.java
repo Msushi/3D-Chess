@@ -6,4 +6,5 @@ public class ChessMain {
         yeet.setSize(500, 500);
         yeet.setVisible(true);
     }
+    
 }

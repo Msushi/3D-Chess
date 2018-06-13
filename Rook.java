@@ -68,7 +68,7 @@ public class Rook extends ChessPiece{
         }
         
         //If existing piece
-        if((c != null) && (c.teamColor == this.teamColor)){
+        if((c != null) && (c.isWhite == this.isWhite)){
             return false;
         }
         

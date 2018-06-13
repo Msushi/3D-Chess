@@ -5,17 +5,22 @@ import java.awt.event.*;
 public class ChessFrame extends JFrame{
     private JPanel mainPanel;
     private JButton upArrow, downArrow;
-    private JLabel elevatorLevel, board, playerA, playerB;
-    private int currentDimension;
+    private Canvas board;
+    private JLabel elevatorLevel, playerA, playerB;
+    private static int currentDimension;
+    
     
     public ChessFrame(){
-      super("3d chess is great");
+      super("Three-Dimensional Chess");
       mainPanel = new JPanel(new GridBagLayout());
       add(mainPanel);
       currentDimension = 1;
       addElements();
-      setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-      setVisible(true);
+      mainPanel.setVisible(true);
+    }
+    
+    public static int getDimension(){
+        return currentDimension;
     }
     
     
@@ -29,7 +34,7 @@ public class ChessFrame extends JFrame{
       c.weightx = 0.6;
       c.gridwidth = 3;
       c.gridheight = 3;
-      board = new JLabel(createImageIcon("Chess Piece Icons/ChessBoard.jpg"));
+      board = new ChessGame();
       board.addMouseListener(new MouseAction());
       mainPanel.add(board, c);
       
@@ -67,21 +72,6 @@ public class ChessFrame extends JFrame{
       downArrow.addActionListener(new DownArrowAction());
     }
     
-    public void paint(Graphics g){
-        ChessPiece test = new Queen(false);
-        test.getIcon().paintIcon(board, g,45 + 10,45);
-        
-        /**ChessGame test = new ChessGame();
-        for(int a = 0; a < 8; a++){
-            for(int b = 0; b < 8;b++){
-                if (!test.board[a][b][currentDimension].isEmpty()) {
-                    int[] pos = test.board[a][b][currentDimension].getPosition();
-                    test.board[a][b][currentDimension].getIcon().paintIcon(board, g, pos[0]*45 + 10, pos[1]*45);
-                }
-            }
-        }*/
-    }
-
     private ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = getClass().getResource(path);
         if (imgURL != null) {

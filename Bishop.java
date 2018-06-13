@@ -19,14 +19,14 @@ public class Bishop extends ChessPiece{
         if(c.pos[0] - this.pos[0] == c.pos[1] - this.pos[1]){
             if(c.pos[0] > this.pos[0]){
                 for(int i = 1; i < c.pos[0] - this.pos[0]; i++){
-                    if(!board[this.pos[0] + i][this.pos[1] + i][i].equals(null)){
+                    if(!ChessGame.board[this.pos[0] + i][this.pos[1] + i][i].equals(null)){
                         return false;
                     }
                 }
             }
             else{
                 for(int i = 1; i < this.pos[0] - c.pos[0]; i++){
-                    if(!board[this.pos[0] + i][this.pos[1] + i][i].equals(null)){
+                    if(!ChessGame.board[this.pos[0] + i][this.pos[1] + i][i].equals(null)){
                         return false;
                     }
                 }
@@ -35,14 +35,14 @@ public class Bishop extends ChessPiece{
         else if(c.pos[0] - this.pos[0] == this.pos[1] - c.pos[1]){
             if(c.pos[0] > this.pos[0]){
                 for(int i = 1; i < c.pos[0] - this.pos[0]; i++){
-                    if(!board[this.pos[0] + i][this.pos[1] - i][i].equals(null)){
+                    if(!ChessGame.board[this.pos[0] + i][this.pos[1] - i][i].equals(null)){
                         return false;
                     }
                 }
             }
             else{
                 for(int i = 1; i < this.pos[0] - c.pos[0]; i++){
-                    if(!board[this.pos[0] + i][this.pos[1] - i][i].equals(null)){
+                    if(!ChessGame.board[this.pos[0] + i][this.pos[1] - i][i].equals(null)){
                         return false;
                     }
                 }
@@ -52,7 +52,7 @@ public class Bishop extends ChessPiece{
             return false;
         }
         //If existing piece
-        if((c != null) && (c.teamColor == this.teamColor)){
+        if((c != null) && (c.isWhite == this.isWhite)){
             return false;
         }
         

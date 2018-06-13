@@ -1,4 +1,9 @@
 import javax.swing.*;
+
+/**
+ *
+ * @author mlyons1388
+ */
 public class Knight extends ChessPiece{
 
     public Knight(boolean white){
@@ -49,7 +54,7 @@ public class Knight extends ChessPiece{
     
     private boolean moveThatPiece(ChessPiece c){
         //If existing piece
-        if((c != null) && (c.teamColor == this.teamColor)){
+        if((c != null) && (c.isWhite == this.isWhite)){
             return false;
         }
         
