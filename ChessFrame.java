@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class ChessFrame extends JFrame{
     private JPanel mainPanel;
     private JButton upArrow, downArrow;
-    private Canvas board;
+    private ChessBoard board;
     private JLabel elevatorLevel, playerA, playerB;
     private static int currentDimension;
     
@@ -20,7 +20,7 @@ public class ChessFrame extends JFrame{
     }
     
     public static int getDimension(){
-        return currentDimension;
+        return currentDimension-1;
     }
     
     
@@ -34,8 +34,9 @@ public class ChessFrame extends JFrame{
       c.weightx = 0.6;
       c.gridwidth = 3;
       c.gridheight = 3;
-      board = new ChessGame();
+      board = new ChessBoard();
       board.addMouseListener(new MouseAction());
+      board.setPreferredSize(new Dimension(380, 380));
       mainPanel.add(board, c);
       
       c.fill = GridBagConstraints.HORIZONTAL;
