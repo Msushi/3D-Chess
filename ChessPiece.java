@@ -24,6 +24,10 @@ public abstract class ChessPiece {
         public void setIcon(Icon yeet) {
             picture = yeet;
         }
+        
+        public boolean isWhite() {
+            return isWhite;
+        }
 	//Sets position of chess piece
         public void setPosition(int a, int b, int c) {
             pos[0] = a;

@@ -13,17 +13,20 @@ public class Pawn extends ChessPiece {
     }
     public boolean move(ChessPiece c) {
         //Checking if the move is valid when a pawn moves normally (forward)
-        if (this.isWhite == c.isWhite) {
+        if (isWhite) {
             if (isFirstMove) { //On the first move, the pawn can move 2 spaces forward
-                if (this.pos[1] == c.pos[1] && this.pos[2] == c.pos[2] && this.pos[0] - c.pos[0] == -1 || this.pos[0] - c.pos[0] == -2) {
+                if (this.pos[0] == c.pos[0] && this.pos[2] == c.pos[2] && (this.pos[1] - c.pos[1] == 1 || this.pos[1] - c.pos[1] == 2)) {
                     this.pos = c.pos;
                     isFirstMove = false;
+                    setPosition(c.pos[0], c.pos[1], c.pos[2]);
                     return true;
                 }
             }
             else
-                if (this.pos[1] == c.pos[1] && this.pos[2] == c.pos[2] && this.pos[0] - c.pos[0] == -1)
+                if (this.pos[0] == c.pos[0] && this.pos[2] == c.pos[2] && this.pos[1] - c.pos[1] == 1) {
+                    setPosition(c.pos[0], c.pos[1], c.pos[2]);
                     return true;
+                }
            
         }
         else {//if (this.isWhite == Color.BLACK) 

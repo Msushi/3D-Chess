@@ -18,14 +18,14 @@ public class Rook extends ChessPiece{
         if(c.pos[0] == this.pos[0] && c.pos[1] == this.pos[1]){
             if(c.pos[2] < this.pos[2]){
                 for(int i = this.pos[2]; i > c.pos[2]; i--){
-                    if(!ChessGame.board[c.pos[0]][c.pos[1]][i].equals(null)){
+                    if(!ChessBoard.board[c.pos[0]][c.pos[1]][i].equals(null)){
                         return false;
                     }
                 }
             }
             else{
                 for(int i = this.pos[2]; i < c.pos[2]; i++){
-                    if(!ChessGame.board[c.pos[0]][c.pos[1]][i].equals(null)){
+                    if(!ChessBoard.board[c.pos[0]][c.pos[1]][i].equals(null)){
                         return false;
                     }
                 }
@@ -34,14 +34,14 @@ public class Rook extends ChessPiece{
         else if(c.pos[1] == this.pos[1] && c.pos[2] == this.pos[2]){
             if(c.pos[0] < this.pos[0]){
                 for(int i = this.pos[0]; i > c.pos[0]; i--){
-                    if(!ChessGame.board[i][c.pos[1]][c.pos[2]].equals(null)){
+                    if(!ChessBoard.board[i][c.pos[1]][c.pos[2]].equals(null)){
                         return false;
                     }
                 }
             }
             else{
                 for(int i = this.pos[0]; i < c.pos[0]; i++){
-                    if(!ChessGame.board[i][c.pos[1]][c.pos[2]].equals(null)){
+                    if(!ChessBoard.board[i][c.pos[1]][c.pos[2]].equals(null)){
                         return false;
                     }
                 }
@@ -50,14 +50,14 @@ public class Rook extends ChessPiece{
         else if(c.pos[0] == this.pos[0] && c.pos[2] == this.pos[2]){
             if(c.pos[1] < this.pos[1]){
                 for(int i = this.pos[1]; i > c.pos[1]; i--){
-                    if(!ChessGame.board[c.pos[0]][i][c.pos[2]].equals(null)){
+                    if(!ChessBoard.board[c.pos[0]][i][c.pos[2]].equals(null)){
                         return false;
                     }
                 }
             }
             else{
                 for(int i = this.pos[1]; i < c.pos[1]; i++){
-                    if(!ChessGame.board[c.pos[0]][i][c.pos[2]].equals(null)){
+                    if(!ChessBoard.board[c.pos[0]][i][c.pos[2]].equals(null)){
                         return false;
                     }
                 }

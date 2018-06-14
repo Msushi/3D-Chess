@@ -86,21 +86,30 @@ public class ChessFrame extends JFrame{
     
     private class DownArrowAction implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            if (currentDimension != 1)
+            if (currentDimension != 1) {
                 currentDimension--;
-            elevatorLevel.setText(Integer.toString(currentDimension));
+                elevatorLevel.setText(Integer.toString(currentDimension));
+                board.repaint();
+            }
+            
         }
     }
     private class UpArrowAction implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            if (currentDimension != 8)
+            if (currentDimension != 8) {
                 currentDimension++;
-            elevatorLevel.setText(Integer.toString(currentDimension));
+                elevatorLevel.setText(Integer.toString(currentDimension));
+                board.repaint();
+            }
+            
         }
     }
     private class MouseAction implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             System.out.println(Integer.toString(e.getX() / 45) + Integer.toString(e.getY() / 45) + Integer.toString(currentDimension) );
+            if (board.interpretInput((e.getX() / 45),(e.getY() / 45),currentDimension -1))
+                board.repaint();
+            
         }
         public void mouseEntered(MouseEvent e) {
             

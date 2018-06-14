@@ -5,13 +5,18 @@ import javax.swing.*;
 public class ChessBoard extends JPanel{
     public static ChessPiece[][][] board;
     //True = Player 1 (white), False = Player 2 (black)
-    private boolean playerTurn;
+    private static boolean playerTurn;
+    private ChessPiece selectedPiece;
+    private ChessPiece selectedMove;
+    private int input;
     
     /**
      * Initializes the chess board so all pieces are in their starting positions with each player's color
      */
     public ChessBoard() {
         board = new ChessPiece[8][8][8];
+        input = 0;
+        playerTurn = true;
         
         for (int a = 0; a < 8; a++)
             for (int b = 0; b< 8; b++)
@@ -61,6 +66,33 @@ public class ChessBoard extends JPanel{
     public ChessPiece[][][] getBoard() {
         return board;
     }
+    //Returns true if a move is succesfully made, false if not
+    public boolean interpretInput(int a, int b, int c) {
+        if (input == 0 ) {
+           if (playerTurn == board[a][b][c].isWhite()) {
+            selectedPiece = board[a][b][c];
+            input++;
+           System.out.println("Selected Piece: " + selectedPiece.pos[0] + " " + selectedPiece.pos[1] + " " + selectedPiece.pos[2] );
+           }
+           return false;
+        }
+        else {
+            selectedMove = board[a][b][c];
+            System.out.println("Selected Move: " + selectedMove.pos[0] + " " + selectedMove.pos[1] + " " + selectedMove.pos[2] );
+            if (selectedPiece.move(selectedMove)) {
+                System.out.println("t");
+                input = 0;
+                updateBoard();
+                return true;
+            }
+            else {
+                System.out.println("f");
+                return false;
+            }
+                
+        }
+        
+    }
     
     private void updateBoard(){
         for(int i = 0; i < 8; i++){
@@ -82,13 +114,12 @@ public class ChessBoard extends JPanel{
     public void paintComponent(Graphics g){
         //ChessGame test = new ChessGame();
         //test.board[1][1][0].getIcon().paintIcon(board, g, 45, 45);
+        super.paintComponent(g);
         Icon chessboard = new ImageIcon(ChessBoard.class.getResource("Chess Piece Icons/ChessBoard.jpg"));
         chessboard.paintIcon(this, g, 10, 10);
         for(int a = 0; a < 8; a++){
             for(int b = 0; b < 8; b++){
-                //System.out.println("q");
                 if (!board[a][b][ChessFrame.getDimension()].isEmpty()) {
-                    System.out.println("[" + a + "]" + "[" + b + "[" + ChessFrame.getDimension() + "]");
                     int[] pos = board[a][b][ChessFrame.getDimension()].getPosition();
                     board[a][b][ChessFrame.getDimension()].getIcon().paintIcon(this, g, pos[0]*45 + 10, pos[1]*45);
                 }
