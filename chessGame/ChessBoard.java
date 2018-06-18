@@ -36,31 +36,31 @@ public class ChessBoard extends JPanel{
         
         //Initializes player 1's pawns
         for (int i = 0; i < 8;i++) {
-            board[i][1][0] = new Pawn(false);
+            board[i][i][0] = new Pawn(false);
         }
         //Initializes player 1's special pieces
-        board[0][0][0] = new Rook(false);
-        board[7][0][0] = new Rook(false);
-        board[1][0][0] = new Knight(false);
-        board[6][0][0] = new Knight(false);
-        board[2][0][0] = new Bishop(false);
-        board[5][0][0] = new Bishop(false);
+        board[0][0][4] = new Rook(false);
+        board[7][0][4] = new Rook(false);
+        board[1][0][2] = new Knight(false);
+        board[6][0][2] = new Knight(false);
+        board[2][0][1] = new Bishop(false);
+        board[5][0][1] = new Bishop(false);
         board[3][0][0] = new Queen(false);
-        board[4][0][0] = new King(false);
+        board[4][0][7] = new King(false);
         
         //Initializes player 2's pawns
         for (int i = 0; i < 8; i++) {
             board[i][6][0] = new Pawn(true);
         }
         //Initializes player 2's special pieces
-        board[0][7][0] = new Rook(true);
-        board[7][7][0] = new Rook(true);
+        board[0][7][4] = new Rook(true);
+        board[7][7][4] = new Rook(true);
         board[1][7][0] = new Knight(true);
         board[6][7][0] = new Knight(true);
-        board[2][7][0] = new Bishop(true);
-        board[5][7][0] = new Bishop(true);
+        board[2][7][6] = new Bishop(true);
+        board[5][7][6] = new Bishop(true);
         board[3][7][0] = new Queen(true);
-        board[4][7][0] = new King(true);
+        board[4][7][7] = new King(true);
         
         //Sets chesspieces to contain position info
         for(int i = 0; i < 8; i++){
